@@ -1,12 +1,11 @@
 package com.mybatis.test;
 
-import java.io.Reader;
 import java.util.List;
 
-import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.mybatis.inter.IArticleOperation;
 import com.mybatis.inter.IUserOperation;
@@ -14,21 +13,15 @@ import com.mybatis.model.Article;
 import com.mybatis.model.User;
 
 public class Test {
+    private static ApplicationContext ctx;
+    
     private static SqlSessionFactory sqlSessionFactory;
-    private static Reader            reader;
-
-    static {
-        try {
-            reader = Resources.getResourceAsReader("Configuration.xml");
-            sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
-        } catch (Exception e) {
-            e.printStackTrace();
+    
+        static {
+            ctx = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
+            sqlSessionFactory = ctx.getBean(SqlSessionFactory.class);
         }
-    }
 
-    public static SqlSessionFactory getSession() {
-        return sqlSessionFactory;
-    }
 
     //    public static void main(String[] args) {
     //        SqlSession session = sqlSessionFactory.openSession();
@@ -47,7 +40,6 @@ public class Test {
     }
     
    
-    
     public void getUserList(String userName){
         SqlSession session = sqlSessionFactory.openSession();
         try {
@@ -62,11 +54,12 @@ public class Test {
         }
     }
     
+    @org.junit.Test
     public void addUser(){
         User user=new User();
-        user.setUserAddress("人民广场");
-        user.setUserName("飞鸟");
-        user.setUserAge("80");
+        user.setUserAddress("世纪大道");
+        user.setUserName("frank");
+        user.setUserAge("25");
         SqlSession session = sqlSessionFactory.openSession();
         try {
             IUserOperation userOperation=session.getMapper(IUserOperation.class);

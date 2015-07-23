@@ -40,18 +40,4 @@ public class UserController {
         model.addAttribute("articles", articles);
         return "index";
     }
-    
-    @RequestMapping("test.html")
-    public String test(){
-        SqlSession session = sqlSessionFactory.openSession();
-        User user = iUserOperation.selectUserByID(2);
-        System.out.println(user.getUserAddress());
-        User user2  = iUserOperation.selectUserByID(2);
-        System.out.println(user2.getUserAddress());
-        session.commit();
-        session.close();
-        return "index";
-    } 
-    
-    
 }
