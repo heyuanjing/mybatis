@@ -7,8 +7,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.mybatis.inter.IArticleOperation;
-import com.mybatis.inter.IUserOperation;
+import com.mybatis.mapper.IArticleOperation;
+import com.mybatis.mapper.IUserOperation;
 import com.mybatis.model.Article;
 import com.mybatis.model.User;
 
@@ -110,4 +110,5 @@ public class Test {
             session.close();
         }
     }
+    
 }

@@ -48,7 +48,7 @@
 
 	<!-- 配置映射文件 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.mybatis.inter" />
+		<property name="basePackage" value="com.mybatis.mapper" />
 	</bean>
 
 

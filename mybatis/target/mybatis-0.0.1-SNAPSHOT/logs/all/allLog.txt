@@ -1,0 +1,5 @@
+2015-07-24 10:49:09 [InfoLogger]-[INFO] - frank love jade
+ 2015-07-24 10:50:19 [InfoLogger]-[INFO] - frank love jade
+ 2015-07-24 10:50:39 [InfoLogger]-[INFO] - frank love jade
+ 2015-07-24 10:51:49 [InfoLogger]-[INFO] - frank love jade
+ 

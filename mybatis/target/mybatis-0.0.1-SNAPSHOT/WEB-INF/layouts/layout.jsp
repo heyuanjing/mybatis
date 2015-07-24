@@ -9,7 +9,10 @@
 <meta charset="UTF-8" />
 <meta name="Keywords" content=" " />
 <meta name="Description" content=" " />
-<title>IB</title>
+<title>标题</title>
+<link href="${pageContext.request.contextPath }/resources/css/common.css" rel="stylesheet" type="text/css" />
+<script src="${pageContext.request.contextPath}/resources/js/jquery-1.11.1.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/ib.js"></script>
 </head>
 <body>
 	<%@include file="header.jsp"%>

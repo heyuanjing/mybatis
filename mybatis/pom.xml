@@ -11,6 +11,10 @@
 		<contextPath>mybatis</contextPath>
 		<port>8080</port>
 		<stopPort>9988</stopPort>
+		<!-- Spring 缓存 -->
+		<javax.cache.version>1.0.0</javax.cache.version>
+		<cache-ri-impl.version>1.0.0</cache-ri-impl.version>
+		<ehcache-jcache.version>1.2</ehcache-jcache.version>
 	</properties>
 
 	<dependencies>
@@ -48,16 +52,6 @@
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.16</version>
-		</dependency>
-		<dependency>
-			<groupId>ehcache</groupId>
-			<artifactId>ehcache</artifactId>
-			<version>1.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.mybatis</groupId>
-			<artifactId>mybatis-ehcache</artifactId>
-			<version>1.0.0</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
@@ -241,6 +235,35 @@
 			<groupId>org.apache.tiles</groupId>
 			<artifactId>tiles-template</artifactId>
 			<version>2.2.2</version>
+		</dependency>
+		
+		<!-- mybatis缓存 -->
+		<dependency>
+			<groupId>ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+			<version>1.2.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-ehcache</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+
+		<!-- Spring 缓存 -->
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache-jcache</artifactId>
+			<version>${ehcache-jcache.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.cache</groupId>
+			<artifactId>cache-api</artifactId>
+			<version>${javax.cache.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jsr107.ri</groupId>
+			<artifactId>cache-ri-impl</artifactId>
+			<version>${cache-ri-impl.version}</version>
 		</dependency>
 
 	</dependencies>
