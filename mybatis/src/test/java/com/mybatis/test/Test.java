@@ -54,7 +54,6 @@ public class Test {
         }
     }
     
-    @org.junit.Test
     public void addUser(){
         User user=new User();
         user.setUserAddress("世纪大道");

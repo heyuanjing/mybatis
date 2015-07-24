@@ -19,7 +19,6 @@ import com.mybatis.model.Article;
 import com.mybatis.model.User;
 
 @Controller
-@RequestMapping("/article")
 public class UserController {
     
     @Autowired
