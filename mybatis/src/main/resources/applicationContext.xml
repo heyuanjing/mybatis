@@ -16,11 +16,11 @@
     ">
 
 	<!-- 打开基于注解的配置 -->
-	<context:annotation-config />
-
+	<!-- <context:annotation-config /> -->
 	<!-- Spring对cache的支持 -->
 	<cache:annotation-driven />
 
+	<!-- 启动AspectJ支持 -->
 	<aop:aspectj-autoproxy />
 
 	<!-- 开启组件自动扫描 -->

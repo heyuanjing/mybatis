@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:p="http://www.springframework.org/schema/p"
-	
+
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/mvc
 		http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
@@ -19,14 +19,22 @@
         http://ehcache-spring-annotations.googlecode.com/svn/schema/ehcache-spring/ehcache-spring-1.1.xsd">
 
 
+	<!-- 启动AspectJ支持 -->
 	<aop:aspectj-autoproxy />
-	<context:annotation-config />
+
+	<!-- 使Spring关注Annotation -->
+	<!-- <context:annotation-config /> -->
 
 	<!-- 扫描打过spring标记的指定目录下的文件,加入到spring容器进行管理 -->
 	<context:component-scan base-package="com.mybatis.controller" />
 
-	<mvc:annotation-driven />
-	
+	<!-- 配置信息转换，将用@responsebody注解的返回值转换为json返回前台， 编码为utf-8 -->
+	<!-- <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"> 
+		<property name="messageConverters"> <list> <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"> 
+		<property name="supportedMediaTypes"> <list> <value>application/json;charset=UTF-8</value> 
+		</list> </property> </bean> </list> </property> </bean> <mvc:annotation-driven 
+		/> -->
+
 	<!-- 配置SpringMvc的拦截器 -->
 	<mvc:interceptors>
 		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
@@ -40,10 +48,8 @@
 			<!-- 三级目录 -->
 			<mvc:mapping path="/*/*/*.json" />
 			<mvc:mapping path="/*/*/*.html" />
-			<!-- 
-			<mvc:exclude-mapping path="/passer/login.html"/>
-			<mvc:exclude-mapping path="/passer/logout.html"/>
- 			-->
+			<!-- <mvc:exclude-mapping path="/passer/login.html"/> <mvc:exclude-mapping 
+				path="/passer/logout.html"/> -->
 			<bean class="com.mybatis.common.CommonInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
@@ -53,7 +59,7 @@
 	<bean
 		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerExceptionResolver"
 		p:order="1" />
- 
+
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass"
@@ -68,7 +74,7 @@
 			</value>
 		</property>
 	</bean>
- 
+
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/view/" />

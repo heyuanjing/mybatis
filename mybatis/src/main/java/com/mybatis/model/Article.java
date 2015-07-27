@@ -39,4 +39,9 @@ public class Article {
         this.content = content;
     }
 
+    @Override
+    public String toString() {
+        return "Article [id=" + id + ", user=" + user + ", title=" + title + ", content=" + content + "]";
+    }
+
 }
